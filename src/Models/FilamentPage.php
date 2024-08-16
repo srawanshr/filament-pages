@@ -3,6 +3,7 @@
 namespace Beier\FilamentPages\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 /**
  * @property string $slug
@@ -15,8 +16,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class FilamentPage extends Model
 {
+    use HasTranslations;
     protected $guarded = [];
 
+    public $translatable = ['title', 'data'];
+    
     public function getRouteKeyName(): string
     {
         return 'slug';
